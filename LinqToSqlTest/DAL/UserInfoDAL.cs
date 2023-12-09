@@ -12,8 +12,7 @@ namespace LinqToSqlTest.DAL
 {
     public static class UserInfoDAL
     {
-        private static string _connectionString = "Server=(local);Database=TutorialDB; Integrated Security=True";
-        private static DataContext Db { get => new DataContext(_connectionString); }
+        private static DataContext Db { get => new DataContext(ConnectionStrings.TutorialDB); }
         public static void Insert(UserInfo userInfo)
         {
             using (var db = Db)
@@ -95,7 +94,8 @@ namespace LinqToSqlTest.DAL
                         transactionScope.Complete();
                         Console.WriteLine("그리고 서밋했습니다.");
                     }
-                }catch
+                }
+                catch
                 {
                     Console.WriteLine("쿼리 실행 도중 에러가 발생하여 롤백했습니다.");
                 }
@@ -118,6 +118,13 @@ namespace LinqToSqlTest.DAL
                 //db.Transaction.Rollback();
                 //Console.WriteLine("그리고 서밋했습니다.");
             }
+        }
+
+        public static UserInfo GetFirstUserInfo(DataContext db, Func<UserInfo, bool> Where)
+        {
+            var table = db.GetTable<UserInfo>();
+
+            return table.FirstOrDefault(Where);
         }
     }
 }

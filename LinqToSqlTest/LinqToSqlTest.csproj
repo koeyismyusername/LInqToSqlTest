@@ -42,11 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparer\StringReverseComparer.cs" />
+    <Compile Include="DAL\ConnectionStrings.cs" />
+    <Compile Include="DAL\StockDAL.cs" />
     <Compile Include="DAL\UserInfoDAL.cs" />
+    <Compile Include="DAL\UserStockRelationDAL.cs" />
     <Compile Include="Entity\Stock.cs" />
     <Compile Include="Entity\UserInfo.cs" />
+    <Compile Include="Entity\UserStockRelation.cs" />
+    <Compile Include="ExchangeType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
