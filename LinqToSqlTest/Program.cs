@@ -16,7 +16,8 @@ namespace LinqToSqlTest
             //GetUserInfosTest();
             //UpdateUserInfoTest();
             //DeleteUserInfoTest();
-            TransactionTest();
+            //TransactionTest();
+            JoinTest();
         }
 
         private static void InsertUserInfoTest()
@@ -53,6 +54,11 @@ namespace LinqToSqlTest
         {
             var userInfo = UserInfo.Of("010-3333-3333", "대중자", new DateTime(2002, 4, 16));
             UserInfoDAL.InsertRollBack2(userInfo);
+        }
+
+        private static void JoinTest()
+        {
+
         }
     }
 }
